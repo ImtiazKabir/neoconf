@@ -8,6 +8,7 @@ return {
 		{ "williamboman/mason.nvim", opts = {} },
 		"williamboman/mason-lspconfig.nvim",
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
+		"nvim-java/nvim-java",
 
 		-- Useful status updates for LSP.
 		{ "j-hui/fidget.nvim", opts = {} },
@@ -186,6 +187,7 @@ return {
 			-- But for many setups, the LSP (`ts_ls`) will work just fine
 			-- ts_ls = {},
 			--
+			jdtls = {},
 			ts_ls = {}, -- tsserver is deprecated
 			ruff = {},
 			pylsp = {
@@ -257,6 +259,9 @@ return {
 		require("mason-lspconfig").setup({
 			handlers = {
 				function(server_name)
+					if server_name == "jdtls" then
+						return
+					end
 					local server = servers[server_name] or {}
 					-- This handles overriding only values explicitly passed
 					-- by the server configuration above. Useful when disabling
@@ -266,6 +271,15 @@ return {
 						server.cmd = { "clangd", "--offset-encoding=utf-8" }
 					end
 					require("lspconfig")[server_name].setup(server)
+				end,
+				jdtls = function()
+					require("java").setup({
+						-- Your custom jdtls settings goes here
+					})
+
+					require("lspconfig").jdtls.setup({
+						-- Your custom nvim-java configuration goes here
+					})
 				end,
 			},
 		})
