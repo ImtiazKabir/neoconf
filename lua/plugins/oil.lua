@@ -212,6 +212,6 @@ return {
 			},
 		})
 
-		vim.keymap.set("n", "<C-n>", "<cmd> Oil --float .<CR>", { desc = "Open oil" })
+		vim.keymap.set("n", "<C-n>", "<cmd> Oil --float<CR>", { desc = "Open oil" })
 	end,
 }
