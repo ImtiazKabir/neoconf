@@ -50,6 +50,12 @@ require("lazy").setup({
 	require("plugins.colorschemes.catppuccin"),
 	require("plugins.colorschemes.jellybeans"),
 	require("plugins.colorschemes.mountain"),
+	require("plugins.colorschemes.gruvbox-material"),
+	require("plugins.colorschemes.sonokai"),
 })
+
+vim.g.sonokai_enable_italic = true
+vim.g.sonokai_style = "espresso"
+vim.g.sonokai_better_performance = 1
 
 vim.cmd("colorscheme nordic")
