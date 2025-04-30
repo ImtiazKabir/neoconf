@@ -202,12 +202,16 @@ return {
 				settings = {
 					pylsp = {
 						plugins = {
+							pylsp_mypy = {
+								enabled = true,
+								live_mode = false, -- optional: disable checking on every keystroke
+								strict = true, -- optional: automatically add --strict
+							},
 							pyflakes = { enabled = false },
 							pycodestyle = { enabled = false },
 							autopep8 = { enabled = false },
 							yapf = { enabled = false },
 							mccabe = { enabled = false },
-							pylsp_mypy = { enabled = false },
 							pylsp_black = { enabled = false },
 							pylsp_isort = { enabled = false },
 						},
