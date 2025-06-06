@@ -290,5 +290,19 @@ return {
 				end,
 			},
 		})
+		-- Manually configure dartls (not supported by mason)
+		local lspconfig = require("lspconfig")
+
+		lspconfig.dartls.setup({
+			cmd = { "/home/imkabir/development/flutter/bin/dart", "language-server", "--protocol=lsp" },
+			filetypes = { "dart" },
+			root_dir = lspconfig.util.root_pattern("pubspec.yaml"),
+			settings = {
+				dart = {
+					enableSdkFormatter = true,
+				},
+			},
+			capabilities = capabilities, -- make sure this uses your cmp-nvim-lsp capabilities
+		})
 	end,
 }
