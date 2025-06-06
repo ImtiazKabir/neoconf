@@ -294,7 +294,7 @@ return {
 		local lspconfig = require("lspconfig")
 
 		lspconfig.dartls.setup({
-			cmd = { "/home/imkabir/development/flutter/bin/dart", "language-server", "--protocol=lsp" },
+			cmd = { "dart", "language-server", "--protocol=lsp" },
 			filetypes = { "dart" },
 			root_dir = lspconfig.util.root_pattern("pubspec.yaml"),
 			settings = {
